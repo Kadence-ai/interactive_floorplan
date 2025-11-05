@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Test Page with Image</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .container {
+    display: flex;
+    gap: 2rem;
+  }
+  .floorplan {
+    position: relative;
+  }
+  .floorplan img {
+    width: 500px;
+  }
+  .marker {
+    position: absolute;
+    background: #333;
+    color: white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+  }
+  .marker.highlight {
+    background: gold;
+    transform: scale(1.3);
+  }
+  .legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .legend-item {
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-  <p>test</p>
-  <img src="floorplan.jpg" alt="A test image" width="400">
+
+<div class="container">
+  <div class="floorplan">
+    <img src="floorplan.jpg" alt="Room floor plan">
+    <div class="marker" id="marker1" style="top: 50px; left: 120px;">1</div>
+    <div class="marker" id="marker2" style="top: 200px; left: 300px;">2</div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item" data-marker="marker1">Desk</div>
+    <div class="legend-item" data-marker="marker2">Bookshelf</div>
+  </div>
+</div>
 </body>
 </html>
