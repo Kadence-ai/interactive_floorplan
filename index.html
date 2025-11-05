@@ -55,5 +55,16 @@
     <div class="legend-item" data-marker="marker2">Bookshelf</div>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll('.legend-item').forEach(item => {
+    item.addEventListener('click', () => {
+      document.querySelectorAll('.marker').forEach(m => m.classList.remove('highlight'));
+      const marker = document.getElementById(item.dataset.marker);
+      marker.classList.add('highlight');
+    });
+  });
+</script>
+  
 </body>
 </html>
